@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Who's that paint?{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav--container">
+          <i class="logo"></i>
+        <a href="/" class="nav--item" id="shot"> Single shot </a>
+      </div>
+      <!-- <span class="nav--item" id="login"> Login </span>
+      <span class="nav--item" id="register"> Register </span> -->
+    </nav>
+
+    <main class="content">
+        <img src="{{ url_for(img_path[0], filename=img_path[1])}}" class="hero-img" alt="image" />
+        <form action="/" class="img-form" method="POST"  enctype="multipart/form-data">
+            <input type="file" class="img-input" name="img-upload" accept="image/*" placeholder="Click here to upload an image" >
+            <button type="submit" class="img-button" >Upload</button>
+        </form>
+        {% if get_flashed_messages()|count > 1 %}
+        <h3>This image was probably created by: </h3>
+        <ol class="predictions">
+          {% for message in get_flashed_messages() %}
+            
+            {% for key in message %}
+            <li class="predictions-item"><a href="https://en.wikipedia.org/wiki/{{ key | replace(' ', '_') }}"></a><span class="bold">{{ key }}</span> - {{ message[key] }}% </a></li>     
+            {% endfor %}
+          {% endfor %}
+        </ol>
+        {% else %}
+        {% for message in get_flashed_messages() %}
+          <p class="error">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+    </main>
+
+
+    <footer class="footer">
+      <div class="footer--container" id="creators">
+        <p class="footer--item">
+          <span class="bold">Maciej Antończak</span> - S18175
+        </p>
+        <p class="footer--item">
+          <span class="bold">Kacper Ratajczak</span> - S
+        </p>
+        <p class="footer--item">
+          <span class="bold">Mateusz Wasilewski</span> - S
+        </p>
+      </div>
+      <div class="footer--container" id="logo">
+        <i class="logo"></i>
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+    ></script>
+  </body>
+</html>
