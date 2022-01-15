@@ -1,0 +1,23 @@
+@import "../../colors.scss";
+
+.header {
+  height: 7%;
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px 30px;
+  color: $color-font;
+  box-shadow: 1px 0 5px 2px #00000020;
+  z-index: 1;
+
+  &--col {
+    display: flex;
+    align-items: center;
+    max-width: 50%;    
+  }
+
+  .cls-1 {
+    fill: $color-secondary;
+}
+}

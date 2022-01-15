@@ -1,6 +1,5 @@
-import { Header, Content, Footer } from "./components";
+import { Header, Content, Footer } from "layout";
 import "./App.scss";
-import { Fragment } from "react";
 
 function App() {
   return (

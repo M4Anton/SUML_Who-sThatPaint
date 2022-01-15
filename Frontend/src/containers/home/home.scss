@@ -1,0 +1,30 @@
+@import "../../colors.scss";
+
+.home {
+   color: $color-font;
+   max-width: 1200px;
+
+
+   .flex-centered {
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+
+       .text {
+           &--title {
+               font-size: 3rem;
+           }
+
+           &--desc {
+               text-align: justify;
+
+           }
+
+           &--button-container {
+               display: flex;
+               justify-content: space-around;
+               align-items: center;
+           }
+       }
+   }
+}

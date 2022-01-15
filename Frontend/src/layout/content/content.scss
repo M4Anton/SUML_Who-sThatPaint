@@ -1,0 +1,10 @@
+@import "../../colors.scss";
+
+.content {
+    height: 100%;
+    background: linear-gradient(to bottom, $color-primary, $color-secondary);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
