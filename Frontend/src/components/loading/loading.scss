@@ -1,0 +1,22 @@
+.overlay {
+    overflow: hidden;
+    background: #00000045;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    &--image {
+        height: 25vh;
+        width: 25vh;
+        
+    }
+
+}

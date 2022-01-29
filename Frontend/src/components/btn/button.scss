@@ -1,35 +1,64 @@
 @import "../../colors.scss";
 
 .link {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-decoration: none;
-    margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  margin-right: 20px;
+
+  &:visited {
+    color: $color-font;
+  }
+
+  &--btn {
+    color: $color-font;
+    padding: 10px 25px;
+    background: $color-secondary;
+    border-radius: 5px;
+    transition: all 0.3s;
+    &.btn-big {
+      padding: 15px 37px;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background: $color-details;
+      color: #fff;
+    }
 
     &:visited {
-      color: $color-font;
-    }
-
-    &--btn {
-      color: $color-font;
-      padding: 10px 25px;
-      background: $color-secondary;
-      border-radius: 5px;
-      transition: all 0.3s;
-      &.btn-big {
-          padding: 15px 37px;
-          font-size: 1.5rem;
-      }
-      
-      &:hover {
-        background: $color-details;
-        color: #fff;
-      }
-
-      &:visited {
-        color: inherit;
-      }
-
+      color: inherit;
     }
   }
+}
+
+.btn {
+  color: $color-font;
+  padding: 10px 25px;
+  background: $color-secondary;
+  border-radius: 5px;
+  transition: all 0.3s;
+  font-size: 1rem;
+  border: none;
+
+  &.btn-big {
+    padding: 15px 37px;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    background: $color-details;
+    color: #fff;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+
+}
+
+.active {
+  background-color: $color-details;
+  color: #fff;;
+}

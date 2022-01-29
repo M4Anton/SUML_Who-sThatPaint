@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 const AppContext = createContext();
 const UserContext = createContext();
 
@@ -19,12 +19,19 @@ function AppContextProvider({ children }) {
 
 function UserContextProvider({ children }) {
   const [userData, setUserData] = useState({});
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    if (userData.id) setAuth(true);
+    else setAuth(false);
+  }, [userData]);
 
   return (
     <UserContext.Provider
       value={{
         userData,
         setUserData,
+        auth,
       }}
     >
       {children}

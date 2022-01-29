@@ -1,0 +1,44 @@
+@import "../../colors.scss";
+
+.flex--container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+
+  .signup {
+    &--container {
+      width: 30%;
+      position: relative;
+      .btn {
+        margin-top: 30px;
+        width: 100%;
+      }
+    }
+
+    &--header {
+        font-size: 2rem;
+        color: $color-font
+    }
+
+    &--success {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &-text {
+        font-size: 1.5rem;
+        color: $color-font;
+      }
+    }
+  }
+
+  .image--container {
+    max-width: 50%;
+
+    .signup-image {
+      width: 100%;
+    }
+  }
+}
