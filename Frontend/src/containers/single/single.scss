@@ -1,4 +1,16 @@
-.search--img {
-    width: 200px;
-    height: 200px;
+ .single {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &--col {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+  .search--img {
+    max-width: 600px;
+  }
 }

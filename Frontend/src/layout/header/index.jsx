@@ -2,12 +2,13 @@ import "./header.scss";
 import { useContext } from "react";
 import { AppContext, UserContext } from "Context";
 import { ReactComponent as Logo } from "images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LinkButton, Button } from "components";
 
 const Header = (props) => {
   const { setShowLoginPopup, showLoginPopup } = useContext(AppContext);
   const { auth, setUserData } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const toggleLogin = () => setShowLoginPopup(!showLoginPopup);
 
@@ -17,6 +18,7 @@ const Header = (props) => {
       const res = await req.json();
       if (res.status === "ok") {
           setUserData({});
+          navigate("/", { replace: true});
         }
     } catch (err) {
       console.error(err);
