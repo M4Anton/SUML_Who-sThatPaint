@@ -53,6 +53,16 @@
         width: 100%;
         border: 1px solid $color-tertiary;
         justify-content: center;
+        
+        .link {
+            text-decoration: none;
+            color: #fff;
+        }
     }
   }
+}
+
+
+.pointer {
+    cursor: pointer;
 }

@@ -7,12 +7,7 @@ import { Home, Login, SignUp, Single } from "containers";
 import "./content.scss";
 
 const Content = (props) => {
-  const { userData, auth } = useContext(UserContext);
-  console.log(userData);
-
-  const handleSetCurrentSearch = (details) => {
-    console.log(details);
-  }
+  const { auth } = useContext(UserContext);
 
 
   return (

@@ -58,7 +58,7 @@ const Single = (props) => {
               <li
                 key={image.id}
                 onClick={(e) => handleOpenHistorySearch(image)}
-                className="flex"
+                className="flex pointer"
               >
                 <span>
                   {image.file.split("/")[image.file.split("/").length - 1]} -{" "}
@@ -116,11 +116,12 @@ const Single = (props) => {
             <h4>Results: </h4>
           {results.map((res) => {
             const el = Object.entries(res);
+            const link = `https://pl.wikipedia.org/wiki/${el[0][0].replace(" ", "_")}`
             return (
-              <div className="flex">
-                <span key={el[0][1]}>
+              <div className="flex pointer">
+                <a href={link} target="_blank" key={el[0][1]} className="link">
                   {el[0][0]} - {el[0][1]}%
-                </span>
+                </a>
               </div>
             );
           })}

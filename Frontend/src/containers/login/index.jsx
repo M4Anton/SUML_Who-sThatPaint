@@ -17,7 +17,6 @@ const Login = (props) => {
 
   useOutsideClick(loginPopupRef, () => setShowLoginPopup(false));
 
-  console.log(error, userData);
 
   const handleLogin = async (e) => {
     e.preventDefault();
