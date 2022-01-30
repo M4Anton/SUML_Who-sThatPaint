@@ -69,12 +69,12 @@ def home():
             path = f"{UPLOAD_FOLDER}/{filename}"
             file.save(path)
             pred = predict_author(path)
-            new_image = Image(notes=request.form.get('notes'), file=path, user_id=current_user.id)
+            new_image = Image(notes=request.form.get('notes'), file=path, user_id=current_user.id, pred=str(pred))
             db.session.add(new_image)
             db.session.commit()
         user_images = []
         for image in current_user.images:
-            user_images.append({"notes": image.notes, "file": image.file, "date": image.date})
+            user_images.append({"notes": image.notes, "file": image.file, "date": image.date, "pred": image.pred})
         return {
             "status": "success",
             "data": pred,

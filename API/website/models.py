@@ -19,4 +19,5 @@ class Image(db.Model):
     notes = db.Column(db.String(1000))
     file = db.Column(db.String(300))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    pred = db.Column(db.String(500))
     date = db.Column(db.DateTime(timezone=True), default=func.now())

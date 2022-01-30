@@ -41,23 +41,29 @@ const Single = (props) => {
   };
 
   const handleOpenHistorySearch = (img) => {
-    setSearchImg(img.file);
+    const path = img.file.split("/");
+    console.log(path);
+    // setSearchImg(path)
     setNotes(img.notes);
+    setResults(img.pred);
     setFromHistory(true);
   };
-  console.log(results);
   return (
     <div className="single">
       {auth && images.length ? (
         <aside className="sider left slide-left">
-          <ul className="">
+            <h4>Your search history</h4>
+          <ul className="zero">
             {images.map((image) => (
               <li
                 key={image.id}
                 onClick={(e) => handleOpenHistorySearch(image)}
+                className="flex"
               >
-                {image.file.split("/")[image.file.split("/").length - 1]} -{" "}
-                {image.date}
+                <span>
+                  {image.file.split("/")[image.file.split("/").length - 1]} -{" "}
+                  {image.date}
+                </span>
               </li>
             ))}
           </ul>
@@ -67,7 +73,12 @@ const Single = (props) => {
         <div className="image-container">
           <img src={searchImg} alt="image" className="search--img" />
         </div>
-        {fromHistory ? null : (
+        {fromHistory ? (
+          <div className="history-record">
+            <h3>Your notes</h3>
+            <p>{notes}</p>
+          </div>
+        ) : (
           <form className="form" onSubmit={handleSubmit}>
             <Dropzone onDropAccepted={onDrop} accept="image/*" maxFiles={1}>
               {({ getRootProps, getInputProps, acceptedFiles }) => (
@@ -102,12 +113,15 @@ const Single = (props) => {
       </div>
       {!results ? null : (
         <aside className="sider right slide">
+            <h4>Results: </h4>
           {results.map((res) => {
-            const [name, probability] = Object.entries(res);
+            const el = Object.entries(res);
             return (
-              <span key="name">
-                {name} - {probability}
-              </span>
+              <div className="flex">
+                <span key={el[0][1]}>
+                  {el[0][0]} - {el[0][1]}%
+                </span>
+              </div>
             );
           })}
         </aside>

@@ -21,10 +21,14 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
-                return {
-                    "status": "success",
-                    "data": {"username": user.username, "email": user.email, "images": user.images, "id": user.id}
-                }
+                user_images = []
+            for image in user.images:
+                user_images.append(
+                    {"notes": image.notes, "file": image.file, "date": image.date, "pred": image.pred})
+            return {
+                "status": "success",
+                "data": {"username": user.username, "email": user.email, "images": user_images, "id": user.id}
+            }
         else:
             return {
                 "status": "error",
